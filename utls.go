@@ -6,7 +6,8 @@ import "log"
 // Helper func for small scripts
 func QuitOnError(e error) {
 	if e != nil {
-		log.Fatal(e)
+		// log.Fatalf("PERR: %+v", e)
+		log.Panic("PERR: ", e)
 	}
 }
 
@@ -15,6 +16,24 @@ func QuitOnError(e error) {
 func QuitOnErrorWithMsg(e error, msg string) {
 	if e != nil {
 		log.Fatal(msg)
+	}
+}
+
+// PanicOnError quits the program when an error occurs.
+// Calls log.Panic() which provides a stack trace.
+// Helper func for small scripts
+func PanicOnError(e error) {
+	if e != nil {
+		log.Panic("PANIC: ", e)
+	}
+}
+
+// PanicOnErrorWithMsg quits the program with a custom message,
+// when an error occurrs.
+// Calls log.Panic() which provides a stack trace.
+func PanicOnErrorWithMsg(e error, msg string) {
+	if e != nil {
+		log.Panic(msg)
 	}
 }
 
