@@ -6,8 +6,8 @@ import "log"
 // Helper func for small scripts
 func QuitOnError(e error) {
 	if e != nil {
-		// log.Fatalf("PERR: %+v", e)
-		log.Panic("PERR: ", e)
+		log.Fatalf("ERR: %+v", e)
+		// log.Panic("ERR: ", e)
 	}
 }
 
